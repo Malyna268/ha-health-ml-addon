@@ -1,21 +1,18 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
-FROM $BUILD_FROM
+FROM python:3.11-slim
 
-RUN apk add --no-cache \
-    python3 \
-    py3-pip \
-    build-base \
-    python3-dev \
-    py3-numpy \
-    py3-scipy \
-    py3-scikit-learn
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --no-cache-dir --break-system-packages \
-    paho-mqtt
+RUN pip install --no-cache-dir \
+    paho-mqtt \
+    numpy \
+    scikit-learn
 
 WORKDIR /app
 
 COPY ml_engine.py /app/ml_engine.py
-COPY run.sh /etc/services.d/health_ml/run
 
-RUN chmod a+x /etc/services.d/health_ml/run
+CMD ["python", "/app/ml_engine.py"]
