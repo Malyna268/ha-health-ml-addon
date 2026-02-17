@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "slug": "health_ml",
   "description": "Local AI Health Anomaly Detection (Isolation Forest)",
-  "url": "https://github.com/YOUR_USERNAME/ha-health-ml-addon",
+  "url": "https://github.com/Malyna268/ha-health-ml-addon",
   "startup": "services",
   "boot": "auto",
   "init": false,
