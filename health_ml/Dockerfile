@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     py3-scipy \
     py3-scikit-learn
 
-RUN pip3 install --no-cache-dir \
+RUN pip3 install --no-cache-dir --break-system-packages \
     paho-mqtt
 
 WORKDIR /app
