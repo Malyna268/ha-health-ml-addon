@@ -1,0 +1,22 @@
+{
+  "name": "Health ML Engine",
+  "version": "1.0.0",
+  "slug": "health_ml",
+  "description": "Local AI Health Anomaly Detection (Isolation Forest)",
+  "url": "https://github.com/YOUR_USERNAME/ha-health-ml-addon",
+  "startup": "services",
+  "boot": "auto",
+  "init": false,
+  "host_network": true,
+  "arch": ["amd64", "aarch64"],
+  "options": {
+    "mqtt_host": "core-mosquitto",
+    "mqtt_user": "malyna",
+    "mqtt_pass": "change_me"
+  },
+  "schema": {
+    "mqtt_host": "str",
+    "mqtt_user": "str",
+    "mqtt_pass": "str"
+  }
+}
