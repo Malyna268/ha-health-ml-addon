@@ -1,12 +1,11 @@
 import os
 import json
+with open("/data/options.json") as f:
+    options = json.load(f)
 import numpy as np
 import paho.mqtt.client as mqtt
 from sklearn.ensemble import IsolationForest
 
-MQTT_HOST = os.environ.get("MQTT_HOST", "core-mosquitto")
-MQTT_USER = os.environ.get("MQTT_USER", "")
-MQTT_PASS = os.environ.get("MQTT_PASS", "")
 
 buffer = []
 model = IsolationForest(contamination=0.05, random_state=42)
