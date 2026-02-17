@@ -1,13 +1,12 @@
 {
   "name": "Health ML Engine",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "slug": "health_ml",
   "description": "Local AI Health Anomaly Detection",
   "startup": "services",
   "boot": "auto",
   "host_network": true,
   "arch": ["amd64"],
-  "image": "ghcr.io/home-assistant/amd64-base:latest",
   "options": {
     "mqtt_host": "core-mosquitto",
     "mqtt_user": "malyna",
@@ -19,3 +18,4 @@
     "mqtt_pass": "str"
   }
 }
+
