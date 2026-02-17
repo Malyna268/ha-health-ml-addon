@@ -9,6 +9,7 @@
   "init": false,
   "host_network": true,
   "arch": ["amd64", "aarch64"],
+  "image": "ghcr.io/home-assistant/{arch}-base"
   "options": {
     "mqtt_host": "core-mosquitto",
     "mqtt_user": "malyna",
