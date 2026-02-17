@@ -1,6 +1,6 @@
 {
   "name": "Health ML Engine",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "slug": "health_ml",
   "description": "Local AI Health Anomaly Detection",
   "startup": "services",
