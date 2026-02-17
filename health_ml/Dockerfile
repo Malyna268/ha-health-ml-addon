@@ -3,12 +3,15 @@ FROM $BUILD_FROM
 
 RUN apk add --no-cache \
     python3 \
-    py3-pip
+    py3-pip \
+    build-base \
+    python3-dev \
+    py3-numpy \
+    py3-scipy \
+    py3-scikit-learn
 
-RUN pip3 install \
-    paho-mqtt \
-    numpy \
-    scikit-learn
+RUN pip3 install --no-cache-dir \
+    paho-mqtt
 
 WORKDIR /app
 
