@@ -15,9 +15,7 @@ RUN pip3 install --no-cache-dir --break-system-packages \
 
 WORKDIR /app
 
-COPY run.sh /run.sh
-COPY ml_engine.py /ml_engine.py
+COPY ml_engine.py /app/ml_engine.py
+COPY run.sh /etc/services.d/health_ml/run
 
-RUN chmod a+x /run.sh
-
-CMD [ "/run.sh" ]
+RUN chmod a+x /etc/services.d/health_ml/run
