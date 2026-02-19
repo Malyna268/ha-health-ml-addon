@@ -15,4 +15,4 @@ WORKDIR /app
 
 COPY ml_engine.py /app/ml_engine.py
 
-CMD ["python", "/app/ml_engine.py"]
+CMD ["python", "-u", "/app/ml_engine.py"]
