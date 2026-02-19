@@ -17,7 +17,6 @@ print("STEP 2 - options loaded")
 print(options)
 
 
-
 # --- ML Model ---
 buffer = []
 model = IsolationForest(contamination=0.05, random_state=42)
