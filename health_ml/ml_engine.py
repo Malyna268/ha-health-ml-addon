@@ -53,15 +53,23 @@ def on_message(client, userdata, msg):
 
 
 # --- MQTT Setup ---
-print("STEP 3 - about to connect")
+print("STEP 3 - about to create client")
 
-client = mqtt.Client()
-client.username_pw_set(MQTT_USER, MQTT_PASS)
-client.connect(MQTT_HOST, 1883)
-client.subscribe("health/ml/input")
-client.on_message = on_message
+try:
+    client = mqtt.Client()
+    print("STEP 4 - client created")
 
-print("Health ML Engine started.")
-print(f"Connecting to MQTT broker: {MQTT_HOST}")
+    client.username_pw_set(MQTT_USER, MQTT_PASS)
+    print("STEP 5 - credentials set")
 
-client.loop_forever()
+    client.connect(MQTT_HOST, 1883, 60)
+    print("STEP 6 - connected")
+
+    client.subscribe("health/ml/input")
+    client.on_message = on_message
+
+    print("STEP 7 - entering loop")
+    client.loop_forever()
+
+except Exception as e:
+    print("MQTT ERROR:", e)
