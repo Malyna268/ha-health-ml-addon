@@ -1,3 +1,4 @@
+print("STEP 1 - file started")
 import json
 import numpy as np
 import paho.mqtt.client as mqtt
@@ -11,6 +12,9 @@ with open("/data/options.json") as f:
 MQTT_HOST = options.get("mqtt_host", "core-mosquitto")
 MQTT_USER = options.get("mqtt_user", "")
 MQTT_PASS = options.get("mqtt_pass", "")
+print("STEP 2 - options loaded")
+print(options)
+
 
 
 # --- ML Model ---
@@ -49,6 +53,8 @@ def on_message(client, userdata, msg):
 
 
 # --- MQTT Setup ---
+print("STEP 3 - about to connect")
+
 client = mqtt.Client()
 client.username_pw_set(MQTT_USER, MQTT_PASS)
 client.connect(MQTT_HOST, 1883)
