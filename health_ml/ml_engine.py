@@ -1,3 +1,4 @@
+print("=== TOP OF FILE EXECUTED ===")
 print("=== ML ENGINE STARTED ===")
 print("STEP 1 - file started")
 import json
@@ -53,7 +54,7 @@ def on_message(client, userdata, msg):
 
 
 # --- MQTT Setup ---
-print("STEP 3 - about to create client")
+print("STEP 3 - about to connect")
 
 try:
     client = mqtt.Client()
