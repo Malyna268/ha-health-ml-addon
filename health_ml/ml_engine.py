@@ -1,3 +1,6 @@
+import sys
+print("Python version:", sys.version)
+print("=== FILE EXECUTION START ===")
 print("=== TOP OF FILE EXECUTED ===")
 print("=== ML ENGINE STARTED ===")
 print("STEP 1 - file started")
