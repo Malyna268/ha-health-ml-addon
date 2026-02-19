@@ -1,4 +1,5 @@
 print("=== ML ENGINE STARTED ===")
+print("STEP 1 - file started")
 import json
 import numpy as np
 import paho.mqtt.client as mqtt
