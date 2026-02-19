@@ -1,6 +1,6 @@
 {
   "name": "Health ML Engine",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "slug": "health_ml",
   "description": "Local AI Health Anomaly Detection",
   "startup": "services",
@@ -18,4 +18,3 @@
     "mqtt_pass": "str"
   }
 }
-
