@@ -15,4 +15,8 @@ WORKDIR /app
 
 COPY ml_engine.py /app/ml_engine.py
 
+RUN echo "===== FILE CONTENT ====="
+RUN cat /app/ml_engine.py
+RUN echo "========================"
+
 CMD ["python", "-u", "/app/ml_engine.py"]
