@@ -97,15 +97,23 @@ def on_message(client, userdata, msg):
         predicted_next = model.predict(latest_features)[0]
 
         # 30-day projection (iterative)
+        forecast_series = []
         projected_weight = float(latest_features[0][-1])
-
+        
         temp_features = latest_features.copy()
 
         for _ in range(30):
             projected_weight = model.predict(temp_features)[0]
+            forecast_series.append(round(projected_weight, 2))
             temp_features[0][-1] = projected_weight
 
         metabolic_probability = min(100, max(0, int((abs(projected_weight - latest_features[0][-1]) * 50))))
+        client.publish(
+            "health/ml/weight_30d_series",
+            json.dumps({"series": forecast_series}),
+            retain=True
+        )
+
 
         client.publish(
             "health/ml/weight_30d_forecast",
