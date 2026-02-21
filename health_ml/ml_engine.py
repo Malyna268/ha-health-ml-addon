@@ -5,7 +5,7 @@ import numpy as np
 import paho.mqtt.client as mqtt
 from sklearn.linear_model import LinearRegression
 
-DATA_FILE = "/data/history.csv"
+DATA_FILE = "/config/history.csv"
 MIN_SAMPLES = 30
 
 # --- Load Add-on Configuration ---
