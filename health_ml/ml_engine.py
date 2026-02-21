@@ -84,7 +84,8 @@ def on_message(client, userdata, msg):
         if sample_count < MIN_SAMPLES:
             client.publish(
                 "health/ml/model_status",
-                json.dumps({"status": f"collecting_data ({sample_count}/{MIN_SAMPLES})"})
+                json.dumps({"status": f"collecting_data ({sample_count}/{MIN_SAMPLES})"}),
+                retain=True
             )
             return
 
@@ -108,17 +109,20 @@ def on_message(client, userdata, msg):
 
         client.publish(
             "health/ml/weight_30d_forecast",
-            json.dumps({"forecast": round(projected_weight, 2)})
+            json.dumps({"forecast": round(projected_weight, 2)}),
+            retain=True
         )
 
         client.publish(
             "health/ml/metabolic_probability",
-            json.dumps({"probability": metabolic_probability})
+            json.dumps({"probability": metabolic_probability}),
+            retain=True
         )
 
         client.publish(
             "health/ml/model_status",
-            json.dumps({"status": "active"})
+            json.dumps({"status": "active"}),
+            retain=True
         )
 
         print("Model updated. Forecast:", projected_weight)
