@@ -6,8 +6,8 @@ import numpy as np
 import paho.mqtt.client as mqtt
 from sklearn.linear_model import LinearRegression
 
-DATA_DIR = "/addon_configs/health_ml"
-DATA_FILE = os.path.join(DATA_DIR, "history_v2.csv")
+DATA_DIR = "/data"
+DATA_FILE = os.path.join(DATA_DIR, "/data/history_v2.csv")
 
 MIN_SAMPLES = 14
 ROLLING_WINDOW = 14
